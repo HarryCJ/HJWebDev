@@ -1,0 +1,55 @@
+<div class="{{ classname }}">
+    {% if help_text %}
+        <div class="object-help help">{{ help_text }}</div>
+    {% endif %}
+
+    <ul class="fields hj-custom-admin">
+
+        {% ifnotequal children.keys|length 0 %}
+
+            <div class="row">
+                <div class="col-sm-6"><li>
+                    {% if children.padding_top.block.label %}
+                        <label{% if children.padding_top.id_for_label %} for="{{ children.padding_top.id_for_label }}"{% endif %}>{{ children.padding_top.block.label }}</label>
+                    {% endif %}
+                    {{ children.padding_top.render_form }}
+                </li></div>
+                <div class="col-sm-6"><li>
+                    {% if children.padding_bottom.block.label %}
+                        <label{% if children.padding_bottom.id_for_label %} for="{{ children.padding_bottom.id_for_label }}"{% endif %}>{{ children.padding_bottom.block.label }}</label>
+                    {% endif %}
+                    {{ children.padding_bottom.render_form }}
+                </li></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"><li>
+                    {% if children.alignment_mobile.block.label %}
+                        <label{% if children.alignment_mobile.id_for_label %} for="{{ children.alignment_mobile.id_for_label }}"{% endif %}>{{ children.alignment_mobile.block.label }}</label>
+                    {% endif %}
+                    {{ children.alignment_mobile.render_form }}
+                </li></div>
+                <div class="col-sm-4"><li>
+                    {% if children.alignment_tablet.block.label %}
+                        <label{% if children.alignment_tablet.id_for_label %} for="{{ children.alignment_tablet.id_for_label }}"{% endif %}>{{ children.alignment_tablet.block.label }}</label>
+                    {% endif %}
+                    {{ children.alignment_tablet.render_form }}
+                </li></div>
+                <div class="col-sm-4"><li>
+                    {% if children.alignment_desktop.block.label %}
+                        <label{% if children.alignment_desktop.id_for_label %} for="{{ children.alignment_desktop.id_for_label }}"{% endif %}>{{ children.alignment_desktop.block.label }}</label>
+                    {% endif %}
+                    {{ children.alignment_desktop.render_form }}
+                </li></div>
+            </div>
+            <li>
+                {% if children.text.block.label %}
+                    <label{% if children.text.id_for_label %} for="{{ children.text.id_for_label }}"{% endif %}>{{ children.text.block.label }}</label>
+                {% endif %}
+                {{ children.text.render_form }}
+            </li>
+
+        {% endifnotequal %}
+
+    </ul>
+</div>

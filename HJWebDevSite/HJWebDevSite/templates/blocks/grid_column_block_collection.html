@@ -1,0 +1,8 @@
+<div class="block grid-column-block-collection padding-top-{{ self.padding_top }} padding-bottom-{{ self.padding_bottom }}">
+	<div class="container">
+	    <!-- <div class="title">{{ self.title }}</div> -->
+	{% for gridColumnBlockItem in self.gridColumnBlock %}
+		{{ gridColumnBlockItem }}
+	{% endfor %}
+	</div>
+</div>

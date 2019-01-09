@@ -1,0 +1,21 @@
+{% load hjwebdev %}
+<div class="block contact-block padding-top-{{ self.padding_top }} padding-bottom-{{ self.padding_bottom }}">
+	<div class="container">
+		<div class="contact-form">
+			<form action="" method="post">
+				{% csrf_token %}
+				{% get_contact_form as contact_form %}
+				<div class="col-sm-6 contact-form-label">{{ contact_form.name.label }}</div>
+				<div class="col-sm-6 contact-form-label hidden-xs">{{ contact_form.email.label }}</div>
+				<div class="col-sm-6 contact-form-field">{{ contact_form.name }}</div>
+				<div class="col-sm-6 contact-form-label visible-xs">{{ contact_form.email.label }}</div>
+				<div class="col-sm-6 contact-form-field">{{ contact_form.email }}</div>
+				<div class="col-sm-12 contact-form-label">{{ contact_form.message.label }}</div>
+				<div class="col-sm-12 contact-form-field">{{ contact_form.message }}</div>
+				<div class="col-sm-12">
+					<input type="submit" name="">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

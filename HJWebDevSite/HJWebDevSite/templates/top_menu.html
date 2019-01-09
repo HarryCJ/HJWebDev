@@ -1,0 +1,22 @@
+{% load wagtailcore_tags %}
+<ul class="nav navbar-nav">
+    <!-- <li class="">
+        <a href="/">Home</a>
+    </li> -->
+    {% for menuitem in menuitems %}
+        <li class="{% if menuitem.show_dropdown %}dropdown{% endif %}{% if calling_page.url == menuitem.url %} active{% endif %}">
+            <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            {% if menuitem.show_dropdown %}
+            <ul class="nav-dropdown-menu">
+    			{% for sub_menuitem in menuitem.get_children.live %}
+			        <a href="{% pageurl sub_menuitem %}">
+				        <li class="drop-down-item">
+				            {{ sub_menuitem.title }}
+		        		</li>
+	        		</a>
+        		{% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

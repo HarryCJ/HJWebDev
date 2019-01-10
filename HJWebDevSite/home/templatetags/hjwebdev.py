@@ -1,20 +1,15 @@
 from datetime import date
 from django import template
 from django.conf import settings
-from django import forms
 
 # from plainpage.models import PlainPage
 # from home.models import HomePage
 from wagtail.core.models import Page
 # from siteoptions.models import SiteOptions
+from home.forms import ContactForm
+from django.core import mail
 
 register = template.Library()
-
-class ContactForm(forms.Form):
-        
-    name = forms.CharField(label='Your name:', max_length=100)
-    email = forms.CharField(label='Your email:', max_length=100)
-    message = forms.CharField(label='Your message:', max_length=500, widget=forms.Textarea)
 
 @register.simple_tag(takes_context=True)
 def get_contact_form(context):

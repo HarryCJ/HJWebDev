@@ -8,17 +8,23 @@
         {% ifnotequal children.keys|length 0 %}
 
             <div class="row">
-                <div class="col-sm-6"><li>
+                <div class="col-sm-4"><li>
                     {% if children.padding_top.block.label %}
                         <label{% if children.padding_top.id_for_label %} for="{{ children.padding_top.id_for_label }}"{% endif %}>{{ children.padding_top.block.label }}</label>
                     {% endif %}
                     {{ children.padding_top.render_form }}
                 </li></div>
-                <div class="col-sm-6"><li>
+                <div class="col-sm-4"><li>
                     {% if children.padding_bottom.block.label %}
                         <label{% if children.padding_bottom.id_for_label %} for="{{ children.padding_bottom.id_for_label }}"{% endif %}>{{ children.padding_bottom.block.label }}</label>
                     {% endif %}
                     {{ children.padding_bottom.render_form }}
+                </li></div>
+                <div class="col-sm-4"><li>
+                    {% if children.background_color.block.label %}
+                        <label{% if children.background_color.id_for_label %} for="{{ children.background_color.id_for_label }}"{% endif %}>{{ children.background_color.block.label }}</label>
+                    {% endif %}
+                    {{ children.background_color.render_form }}
                 </li></div>
             </div>
 

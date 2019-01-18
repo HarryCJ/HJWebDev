@@ -22,6 +22,11 @@ class GenericBlock(blocks.StructBlock):
         ('large', 'Large'),
     ],  default='medium')
 
+    background_color = blocks.ChoiceBlock(choices=[
+        ('light', 'Light'),
+        ('dark', 'Dark'),
+    ],  default='light')
+
 class ThreeColumnBlock(GenericBlock):
     # title = blocks.CharBlock(classname="full title")
     heading_1 = blocks.CharBlock(classname="full title")
@@ -86,19 +91,19 @@ class ContactBlock(GenericBlock):
 
 class GridColumnBlock(blocks.StructBlock):
 
-    grid_proportion_mobile = blocks.ChoiceBlock(choices=[
+    grid_proportion_mobile = blocks.ChoiceBlock(choices=[ ('hidden-xs', 'Hidden'), 
         ('col-xs-1', '1'), ('col-xs-2', '2'), ('col-xs-3', '3'),
         ('col-xs-4', '4'), ('col-xs-5', '5'), ('col-xs-6', '6'),
         ('col-xs-7', '7'), ('col-xs-8', '8'), ('col-xs-9', '9'),
         ('col-xs-10', '10'), ('col-xs-11', '11'), ('col-xs-12', '12'),
     ],  default='col-xs-12')
-    grid_proportion_tablet = blocks.ChoiceBlock(choices=[
+    grid_proportion_tablet = blocks.ChoiceBlock(choices=[ ('hidden-sm', 'Hidden'), 
         ('col-sm-1', '1'), ('col-sm-2', '2'), ('col-sm-3', '3'),
         ('col-sm-4', '4'), ('col-sm-5', '5'), ('col-sm-6', '6'),
         ('col-sm-7', '7'), ('col-sm-8', '8'), ('col-sm-9', '9'),
         ('col-sm-10', '10'), ('col-sm-11', '11'), ('col-sm-12', '12'),
     ],  default='col-sm-6')
-    grid_proportion_desktop = blocks.ChoiceBlock(choices=[
+    grid_proportion_desktop = blocks.ChoiceBlock(choices=[ ('hidden-md hidden-lg', 'Hidden'), 
         ('col-md-1', '1'), ('col-md-2', '2'), ('col-md-3', '3'),
         ('col-md-4', '4'), ('col-md-5', '5'), ('col-md-6', '6'),
         ('col-md-7', '7'), ('col-md-8', '8'), ('col-md-9', '9'),

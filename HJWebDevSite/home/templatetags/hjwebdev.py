@@ -15,13 +15,12 @@ register = template.Library()
 def get_contact_form(context):
 
 	contact_form = ContactForm()
-
-	if context['request'].method == "POST":
-		contact_form = ContactForm(context['request'].POST)
-		if contact_form.is_valid():
-			message = "name: "+contact_form.cleaned_data["name"]+'\n'+'email: '+contact_form.cleaned_data["email"]+'\nmessage:\n'+contact_form.cleaned_data["message"]
-			m = mail.EmailMessage("new mesage from hjwebdev", message, 'noreply@hjwebdev.co.uk', ["hjwebdev@googlemail.com"])
-			m.send()
+	# if context['request'].method == "POST":
+	# 	contact_form = ContactForm(context['request'].POST)
+	# 	if contact_form.is_valid():
+	# 		message = "name: "+contact_form.cleaned_data["name"]+'\n'+'email: '+contact_form.cleaned_data["email"]+'\nmessage:\n'+contact_form.cleaned_data["message"]
+	# 		m = mail.EmailMessage("new mesage from hjwebdev", message, 'noreply@hjwebdev.co.uk', ["hjwebdev@googlemail.com"])
+	# 		m.send()
 
 	return contact_form
 

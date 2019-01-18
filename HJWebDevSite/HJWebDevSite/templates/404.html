@@ -3,7 +3,21 @@
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-    <h1>Page not found</h1>
-
-    <h2>Sorry, this page could not be found.</h2>
+<article>
+	<section><div class="block heading-block padding-top-large padding-bottom-medium background-light">
+		<div class="container">
+			<div class="heading">Page not found</div>
+		</div>
+	</div></section>
+	<section><div class="block paragraph-block padding-top-none padding-bottom-medium background-light col-xs-alignment-center col-sm-alignment-center col-md-alignment-center">
+		<div class="container">
+			<div class="paragraph"><div class="rich-text"><p>Sorry, this page could not be found.</p></div></div>
+		</div>
+	</div></section>
+	<section><div class="block button-block padding-top-none padding-bottom-large">
+		<div class="container">
+			<div class="button"><a class="button-container" href="/">Home</a></div>
+		</div>
+	</div></section>
+</article>
 {% endblock %}

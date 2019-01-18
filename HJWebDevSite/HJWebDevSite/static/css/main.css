@@ -397,12 +397,12 @@ a:hover {
     color: white;
 }
 
-.block.background-dark .rich-text a {
+.block .rich-text a {
     color: hsla(19, 84%, 47%, 1);
 }
 
-.block.background-dark .rich-text a:focus,
-.block.background-dark .rich-text a:hover {
+.block .rich-text a:focus,
+.block .rich-text a:hover {
     color: #9c5533;
 }
 

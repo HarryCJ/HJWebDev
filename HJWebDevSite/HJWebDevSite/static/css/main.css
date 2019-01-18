@@ -545,6 +545,17 @@ ul.nav-dropdown-menu a:last-child .drop-down-item {
     background: #f1f1f1;
 }
 
+
+.success-message {
+
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    background: #9c5533;
+}
+
 .block.padding-top-none { padding-top: 0px;}
 .block.padding-top-small { padding-top: 25px;}
 .block.padding-top-medium { padding-top: 50px;}

@@ -1,3 +1,7 @@
-<div class="column-container {{ self.grid_proportion_mobile }} {{ self.grid_proportion_tablet }} {{ self.grid_proportion_desktop }} {{ self.alignment_mobile }} {{ self.alignment_tablet }} {{ self.alignment_desktop }}">
+{% load hjwebdev %}
+{% autoescape off %}{% for extraOption in self.extra_options %}{% get_eo_start extraOption %}{% endfor %}{% endautoescape %}
+<div class="column-container {% for extraOption in self.extra_options %}{% get_eo_classes extraOption %}{% endfor %}
+{{ self.grid_proportion_mobile }} {{ self.grid_proportion_tablet }} {{ self.grid_proportion_desktop }} {{ self.alignment_mobile }} {{ self.alignment_tablet }} {{ self.alignment_desktop }}">
 	<div class="column-content">{{ self.content }}</div>
 </div>
+{% autoescape off %}{% for extraOption in self.extra_options %}{% get_eo_end extraOption %}{% endfor %}{% endautoescape %}

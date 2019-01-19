@@ -8,8 +8,37 @@ from wagtail.core.models import Page
 # from siteoptions.models import SiteOptions
 from home.forms import ContactForm
 from django.core import mail
+from wagtail.core.models import Page
 
 register = template.Library()
+
+@register.simple_tag
+def get_eo_start(extraOption):
+    # return extraOption.get_eo_start()
+    print(str(extraOption.value["link"]))
+    if extraOption.block.eo_type == "make_block_link":
+        # if str(extraOption) == "True":
+        return '<a href="{}">'.format(extraOption.value["link"])
+    # print (Page.)
+    # print(extraOption.block.eo_type)
+    # if extraOption["get_eo_start"]:
+    #     return extraOption["get_eo_start"]
+    return ""
+
+@register.simple_tag
+def get_eo_classes(extraOption):
+    if extraOption.block.eo_type == "make_block_link":
+        return "make-block-link"
+
+# @register.simple_tag
+# def get_eo_value(extraOption):
+#     if extraOption.block.eo_type == "make_block_link":
+#         return extraOption.value["link"]
+
+@register.simple_tag
+def get_eo_end(extraOption):
+    if extraOption.block.eo_type == "make_block_link":
+        return "</a>"
 
 @register.simple_tag(takes_context=True)
 def get_contact_form(context):
@@ -18,7 +47,7 @@ def get_contact_form(context):
 	# if context['request'].method == "POST":
 	# 	contact_form = ContactForm(context['request'].POST)
 	# 	if contact_form.is_valid():
-	# 		message = "name: "+contact_form.cleaned_data["name"]+'\n'+'email: '+contact_form.cleaned_data["email"]+'\nmessage:\n'+contact_form.cleaned_data["message"]
+	# 		message = "name: "+`.cleaned_data["name"]+'\n'+'email: '+contact_form.cleaned_data["email"]+'\nmessage:\n'+contact_form.cleaned_data["message"]
 	# 		m = mail.EmailMessage("new mesage from hjwebdev", message, 'noreply@hjwebdev.co.uk', ["hjwebdev@googlemail.com"])
 	# 		m.send()
 

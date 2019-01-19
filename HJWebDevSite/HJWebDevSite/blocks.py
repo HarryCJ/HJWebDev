@@ -6,7 +6,66 @@ from wagtail.core.fields import StreamField
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
-class GenericBlock(blocks.StructBlock):
+class ExtraOptions_Block(blocks.StructBlock):
+
+    eo_type = ""
+
+    @property
+    def get_eo_classes(self):
+        return "test classes"
+
+    @property
+    def get_eo_start(self):
+        return "test start"
+
+    @property
+    def get_eo_end(self):
+        return "test end"
+
+class MakeBlockLink_Block(ExtraOptions_Block):
+
+    eo_type = "make_block_link"
+
+    link = blocks.CharBlock()
+
+    # make_block_link = blocks.ChoiceBlock(choices=[
+    #     (True, 'Yes'),
+    #     (False, 'No'),
+    # ], default=True)
+
+    # @property
+    # def get_eo_start(self):
+    #     # print("self.__dict__")
+    #     # print(self.__dict__)
+    #     # print('self.child_blocks.values()')
+    #     # print(self.child_blocks.values())
+    #     # for cb in self.child_blocks.values():
+    #     #     print("""cb.value""")
+    #     #     print(cb.value)
+    #     if self.child_blocks["make_block_link"] == True:
+    #         return "start link"
+    #     else:
+    #         return ""
+
+    # @property
+    # def get_eo_classes(self):
+    #     if self.child_blocks["make_block_link"] == True:
+    #         return "make-block-link"
+    #     else:
+    #         return ""
+    
+    # @property
+    # def get_eo_end(self):
+    #     if self.child_blocks["make_block_link"] == True:
+    #         return "end link"
+    #     else:
+    #         return ""
+
+    class Meta:
+        template = 'blocks/extra_options/make_block_link.html'
+        icon = 'link'
+
+class Generic_Block(blocks.StructBlock):
 
     padding_top = blocks.ChoiceBlock(choices=[
         ('none', 'None'),
@@ -27,7 +86,31 @@ class GenericBlock(blocks.StructBlock):
         ('dark', 'Dark'),
     ],  default='light')
 
-class ThreeColumnBlock(GenericBlock):
+    extra_options = blocks.StreamBlock([
+        ('makeBlockLink', MakeBlockLink_Block()),
+        ], 
+        required=False)
+
+# class ExtraOptions_Block(blocks.StructBlock):
+
+    # mobile_padding_top = blocks.ChoiceBlock(choices=[
+    #     ('none', 'None'),
+    #     ('small', 'Small'),
+    #     ('medium', 'Medium'),
+    #     ('large', 'Large'),
+    # ], default='medium')
+
+    # mobile_padding_bottom = blocks.ChoiceBlock(choices=[
+    #     ('none', 'None'),
+    #     ('small', 'Small'),
+    #     ('medium', 'Medium'),
+    #     ('large', 'Large'),
+    # ],  default='medium')
+
+    # class Meta:
+    #     template = 'blocks/extra_options/mobile_padding_block.html'
+
+class ThreeColumn_Block(Generic_Block):
     # title = blocks.CharBlock(classname="full title")
     heading_1 = blocks.CharBlock(classname="full title")
     paragraph_1 = blocks.RichTextBlock()
@@ -40,7 +123,7 @@ class ThreeColumnBlock(GenericBlock):
         template = 'blocks/three_column_block.html'
         icon = 'placeholder'
 
-class HeadingBlock(GenericBlock):
+class Heading_Block(Generic_Block):
 
     heading = blocks.CharBlock(classname="full title")
 
@@ -48,7 +131,7 @@ class HeadingBlock(GenericBlock):
         template = 'blocks/heading_block.html'
         icon = 'title'
 
-class ParagraphBlock(GenericBlock):
+class Paragraph_Block(Generic_Block):
 
     alignment_mobile = blocks.ChoiceBlock(choices=[
         ('col-xs-alignment-left', 'Left'),
@@ -72,7 +155,7 @@ class ParagraphBlock(GenericBlock):
         form_template ="blocks/paragraph_block_admin.html"
         icon = 'pilcrow'
 
-class ButtonBlock(GenericBlock):
+class Button_Block(Generic_Block):
 
     text = blocks.CharBlock()
     url = blocks.CharBlock()
@@ -81,7 +164,7 @@ class ButtonBlock(GenericBlock):
         template = 'blocks/button_block.html'
         icon = 'link'
 
-class ContactBlock(GenericBlock):
+class Contact_Block(Generic_Block):
 
     send_email = blocks.EmailBlock(default="hjwebdev@googlemail.com", label="Address to which the contact form sends an email.")
 
@@ -89,7 +172,7 @@ class ContactBlock(GenericBlock):
         template = 'blocks/contact_block.html'
         icon = 'mail'
 
-class GridColumnBlock(blocks.StructBlock):
+class GridColumn_Block(blocks.StructBlock):
 
     grid_proportion_mobile = blocks.ChoiceBlock(choices=[ ('hidden-xs', 'Hidden'), 
         ('col-xs-1', '1'), ('col-xs-2', '2'), ('col-xs-3', '3'),
@@ -128,6 +211,11 @@ class GridColumnBlock(blocks.StructBlock):
 
     content = blocks.RichTextBlock()
 
+    extra_options = blocks.StreamBlock([
+        ('makeBlockLink', MakeBlockLink_Block()),
+        ], 
+        required=False)
+
     # def get_form_context(self, value, prefix='', errors=None):
 
     #     # print (value)
@@ -150,10 +238,10 @@ class GridColumnBlock(blocks.StructBlock):
         form_template ="blocks/grid_column_block_admin.html"
         icon='placeholder'
 
-class GridColumnBlockCollection(GenericBlock):
+class GridColumn_BlockCollection(Generic_Block):
 
     gridColumnBlock = blocks.StreamBlock([
-        ('grid_column_block', GridColumnBlock()),])
+        ('grid_column_block', GridColumn_Block()),])
 
     class Meta:
         template = 'blocks/grid_column_block_collection.html'

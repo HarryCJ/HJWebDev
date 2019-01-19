@@ -59,6 +59,11 @@
 	.col-sm-alignment-left { text-align: left; }
 	.col-sm-alignment-center { text-align: center; }
 	.col-sm-alignment-right { text-align: right; }
+
+
+	.content-container {
+	    padding-bottom: 50px;
+	}
 }
 
 /*mobile*/
@@ -108,5 +113,9 @@
 	.col-xs-alignment-left { text-align: left; }
 	.col-xs-alignment-center { text-align: center; }
 	.col-xs-alignment-right { text-align: right; }
+
+	.content-container {
+	    padding-bottom: 15px;
+	}
 
 }

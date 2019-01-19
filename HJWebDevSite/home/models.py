@@ -5,7 +5,7 @@ from wagtail.core.fields import StreamField
 from wagtail.core import blocks
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
-from HJWebDevSite.blocks import HeadingBlock, ParagraphBlock, ThreeColumnBlock, ButtonBlock, GridColumnBlockCollection, ContactBlock
+from HJWebDevSite.blocks import Heading_Block, Paragraph_Block, ThreeColumn_Block, Button_Block, GridColumn_BlockCollection, Contact_Block
 from home.forms import ContactForm
 from django.core import mail
 from django.contrib import messages
@@ -14,13 +14,13 @@ from django.contrib import messages
 class HomePage(Page):
 
     body = StreamField([
-        ('heading', HeadingBlock()),
-        ('paragraph', ParagraphBlock()),
-        # ('image', ImageChooserBlock()),
-        ('three_column_blocks', ThreeColumnBlock()),
-        ('button_block', ButtonBlock()),
-        ('gird_column_block_collection', GridColumnBlockCollection()),
-        ('contact_block', ContactBlock()),
+        ('heading', Heading_Block()),
+        ('paragraph', Paragraph_Block()),
+        # ('image', ImageChooser_Block()),
+        ('three_column_blocks', ThreeColumn_Block()),
+        ('button_block', Button_Block()),
+        ('gird_column_block_collection', GridColumn_BlockCollection()),
+        ('contact_block', Contact_Block()),
     ], null=True, blank=True)
     
     content_panels = Page.content_panels + [

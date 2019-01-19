@@ -54,6 +54,12 @@
                 {% endif %}
                 {{ children.text.render_form }}
             </li>
+            <li>
+                {% if children.extra_options.block.label %}
+                    <label{% if children.content.id_for_label %} for="{{ children.content.id_for_label }}"{% endif %}>{{ children.content.block.label }}</label>
+                {% endif %}
+                {{ children.extra_options.render_form }}
+            </li>
 
         {% endifnotequal %}
 

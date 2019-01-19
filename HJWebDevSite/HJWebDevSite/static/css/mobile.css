@@ -69,6 +69,14 @@
 /*mobile*/
 @media screen and (max-width: 767px) {
 
+	.content-container {
+		overflow: hidden;
+	}
+
+	.block .rich-text h4 a {
+		font-size: 20px;
+	}
+
 	.header-container .container {
 		padding-top: 15px;
 		padding-bottom: 15px;

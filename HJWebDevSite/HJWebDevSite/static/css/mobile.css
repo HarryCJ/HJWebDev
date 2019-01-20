@@ -9,12 +9,27 @@
 /*tablet*/
 @media screen and (max-width: 1024px) {
 
+	.hj-logo {
+		margin-top: 0px;
+	    	height: 100px;
+	}
+
+	.hj-container.active .hj-logo,
+	.hj-container:not(.active) a:hover .hj-logo {
+		border-radius: 25px;
+	}
+
 	.header-container h1 {
 		font-size: 40px;
 		top: -15px;
 		left: 90px;
 		/*width: 185px;*/
 		padding-right: 95px;
+	}
+
+	.nav>li:not(.active)>a:hover, .nav>li:not(.active)>a:focus,
+	.nav>li.active>a {
+		border-radius: 10px;
 	}
 
 	.navbar-nav>li>a {
@@ -68,6 +83,16 @@
 
 /*mobile*/
 @media screen and (max-width: 767px) {
+
+	.header-container .container .hj-container {
+		text-align: center;
+		width: 100%;
+	}
+
+	.hj-container a {
+	    margin: auto;
+	    display: block;
+	}
 
 	.content-container {
 		overflow: hidden;

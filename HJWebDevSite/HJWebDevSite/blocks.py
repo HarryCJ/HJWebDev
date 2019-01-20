@@ -81,9 +81,11 @@ class Generic_Block(blocks.StructBlock):
         ('large', 'Large'),
     ],  default='medium')
 
-    background_color = blocks.ChoiceBlock(choices=[
+    background_style = blocks.ChoiceBlock(choices=[
         ('light', 'Light'),
         ('dark', 'Dark'),
+        ('sand', 'Sand'),
+        ('water', 'Water'),
     ],  default='light')
 
     extra_options = blocks.StreamBlock([

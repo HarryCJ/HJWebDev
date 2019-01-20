@@ -21,10 +21,10 @@
                     {{ children.padding_bottom.render_form }}
                 </li></div>
                 <div class="col-sm-4"><li>
-                    {% if children.background_color.block.label %}
-                        <label{% if children.background_color.id_for_label %} for="{{ children.background_color.id_for_label }}"{% endif %}>{{ children.background_color.block.label }}</label>
+                    {% if children.background_style.block.label %}
+                        <label{% if children.background_style.id_for_label %} for="{{ children.background_style.id_for_label }}"{% endif %}>{{ children.background_style.block.label }}</label>
                     {% endif %}
-                    {{ children.background_color.render_form }}
+                    {{ children.background_style.render_form }}
                 </li></div>
             </div>
 

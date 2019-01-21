@@ -49,16 +49,12 @@
             <div class="bg-gradient"></div>
             <div class="clouds"></div> -->
             <div class="container">
-
-                    <div class="hj-container {% if self.url == '/' %}active{% endif %}">
-                        <a href="/">
+                {% get_site_root as site_root %}
+                    <div class="hj-container">
+                        <a href="/" class="ajax-link ajax-page-id-{{ site_root.id }} activatable {% if self.url == '/' %}active{% endif %}">
                         <!-- <div class="logo-container"> -->
-                        {% if self.url == '/' %}
-                        <img class="hj-logo" src="/static/img/logov3whitetext.png">
-                        {% else %}
-                        <img class="hj-logo hj-logo-notext" src="/static/img/logov3whitenotext.png">
-                        <img class="hj-logo hj-logo-text" src="/static/img/logov3whitetext.png">
-                        {% endif %}
+                        <img class="hj-logo hj-logo-notext ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitenotext.png" href="/">
+                        <img class="hj-logo hj-logo-text ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitetext.png" href="/">
                         <!-- <div class="webdev-text">webdev</div> -->
                         <!-- </div> -->
                         </a>
@@ -66,7 +62,7 @@
                         <div class="hj-text-container"><div class="hj-text">HJ</div></div> -->
                     </div>
                     <div class="menu-items">
-                        {% get_site_root as site_root %}
+                        
                         {% top_menu parent=site_root calling_page=self %}
                     </div>
 
@@ -97,18 +93,22 @@
         </div> -->
 
         <div class="content-container">
-            {% if messages %}
-            <div class="messages-container">
+            
+            <div class="messages-container"  {% if messages %}{% else %} style="display: none;" {% endif %}>
+            <!-- <div class="error-message message bad-connection-message">Could not connect.</div> -->
+                {% if messages %}
                 {% for message in messages %}
                 <div{% if message.tags %} class="{{ message.tags }}-message message"{% endif %}>
                     {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
                     {{ message }}
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
-            {% endif %}
-                    {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
+
+        <div class="footer-container"></div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>

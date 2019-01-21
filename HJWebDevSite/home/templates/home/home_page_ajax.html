@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+<div class="content-container-ajax page-id-{{ self.id }}" ajax-page-id="{{ menuitem.id }}" ajax-page-title="{{ menuitem.title }}" style="opacity: 0;">
+<article>
+    {% for block in page.body %}
+        {% include_block block %}
+    {% endfor %}
+</article>
+</div>

@@ -9,9 +9,10 @@ from HJWebDevSite.blocks import Heading_Block, Paragraph_Block, ThreeColumn_Bloc
 from home.forms import ContactForm
 from django.core import mail
 from django.contrib import messages
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+from django.template.response import TemplateResponse
 
-
-class HomePage(Page):
+class HomePage(RoutablePageMixin, Page):
 
     body = StreamField([
         ('heading', Heading_Block()),
@@ -26,6 +27,15 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+
+    @route(r'^ajax/$')
+    def ajax_view(self, request):
+        return TemplateResponse(
+          request,
+           'home/home_page_ajax.html',
+           self.get_context(request)
+        )
+
 
     def get_context(self, request):
         context = super().get_context(request)

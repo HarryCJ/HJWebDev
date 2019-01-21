@@ -1,5 +1,7 @@
 <div class="block button-block padding-top-{{ self.padding_top }} padding-bottom-{{ self.padding_bottom }} background-{{ self.background_style }}">
 	<div class="container">
-	    <div class="button"><a class="button-container" href="{{ self.url }}">{{ self.text }}</a></div>
+	    <div class="button">
+	    <a class="button-container ajax-link" {% if self.page %} ajax-page-id="{{ self.page.id }}" ajax-page-title="{{ self.page.title }}" href="{{ self.page.url }}"{% else %} href="{{ self.url }}" {% endif %}>{{ self.text }}</a>
+	    </div>
 	 </div>
 </div>

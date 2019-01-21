@@ -76,13 +76,27 @@
 	.col-sm-alignment-right { text-align: right; }
 
 
-	.content-container {
-	    padding-bottom: 50px;
+	.footer-container {
+	    height: 50px;
 	}
 }
 
 /*mobile*/
 @media screen and (max-width: 767px) {
+
+	.hj-container.active .hj-logo, .hj-container:not(.active) a:hover .hj-logo,
+	.hj-container a.active .hj-logo,
+	.hj-container .hj-logo {
+		border-radius: 20px;
+	}
+
+	img.hj-logo.hj-logo-notext {
+	    display: none;
+	}
+	img.hj-logo.hj-logo-text {
+	    display: block;
+	    opacity: 1;
+	}
 
 	.hj-logo {
 	    margin-top: 0px;
@@ -153,8 +167,8 @@
 	.col-xs-alignment-center { text-align: center; }
 	.col-xs-alignment-right { text-align: right; }
 
-	.content-container {
-	    padding-bottom: 15px;
+	.footer-container {
+	    height: 15px;
 	}
 
 }

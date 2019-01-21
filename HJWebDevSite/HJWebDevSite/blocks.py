@@ -5,6 +5,8 @@ from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.models import Page
+from django import forms
 
 class ExtraOptions_Block(blocks.StructBlock):
 
@@ -112,6 +114,20 @@ class Generic_Block(blocks.StructBlock):
     # class Meta:
     #     template = 'blocks/extra_options/mobile_padding_block.html'
 
+class PageChooserBlock(blocks.ChooserBlock):
+    target_model = Page
+    widget = forms.Select
+
+    class Meta:
+        icon = "icon"
+
+    # Return the key value for the select field
+    def value_for_form(self, value):
+        if isinstance(value, self.target_model):
+            return value.pk
+        else:
+            return value
+
 class ThreeColumn_Block(Generic_Block):
     # title = blocks.CharBlock(classname="full title")
     heading_1 = blocks.CharBlock(classname="full title")
@@ -160,7 +176,8 @@ class Paragraph_Block(Generic_Block):
 class Button_Block(Generic_Block):
 
     text = blocks.CharBlock()
-    url = blocks.CharBlock()
+    page = PageChooserBlock(required=False)
+    url = blocks.CharBlock(False)
 
     class Meta:
         template = 'blocks/button_block.html'

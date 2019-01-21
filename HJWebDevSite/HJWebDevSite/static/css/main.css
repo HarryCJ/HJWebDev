@@ -101,7 +101,7 @@ h2.subtitle {
     color: white;
     padding-top: 100px;
     font-size: 30px;
-    font-family: monospace;
+    /*font-family: monospace;*/
 }
 
 .header-container .container .hj-container {
@@ -142,24 +142,48 @@ h2.subtitle {
 
 .hj-logo {
 
-    border-radius: 5px;
+    /*border-radius: 5px;*/
 height: 200px;
 margin-top: 50px;
-transition: background-color .15s, border-radius 0.1s;
+transition: background-color .15s, opacity 0.5s;
+position: absolute;
+top: 0px;
+left: 0px;
+opacity: 1;
+    border-radius: 40px;
 
 /*width: 100px;*/
 
 /*image-rendering: pixelated;*/
 }
 
+
+.hj-container a .hj-logo-text {
+    opacity: 0;
+}
+
+.hj-container a:hover .hj-logo-text {
+    opacity: 1;
+}
+
 .hj-container:not(.active) a:hover .hj-logo {
     background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 50px;
+}
+
+
+.hj-container:not(.active) a:focus .hj-logo {
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    /*border-radius: 65px;*/
 }
 
 .hj-container.active .hj-logo {
     background-color: rgba(0, 0, 0, 0.35);
-    border-radius: 50px;
+    border-radius: 40px;
+}
+
+.hj-container.active a:focus .hj-logo {
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    /*border-radius: 65px;*/
 }
 
 .nav-container {
@@ -201,6 +225,8 @@ overflow: visible;
 .nav>li.active>a {
 
     /*color: rgb(240, 130, 78);*/
+    /*color: #440019;*/
+    text-shadow: none;
     background-color: rgba(0, 0, 0, 0.35);
         border-radius: 15px;
 }

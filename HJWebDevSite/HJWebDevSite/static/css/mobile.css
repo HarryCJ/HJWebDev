@@ -10,8 +10,8 @@
 @media screen and (max-width: 1024px) {
 
 	.hj-logo {
-		margin-top: 0px;
-	    	height: 100px;
+		margin-top: -25px;
+	    	height: 150px;
 	}
 
 	.hj-container.active .hj-logo,
@@ -83,6 +83,12 @@
 
 /*mobile*/
 @media screen and (max-width: 767px) {
+
+	.hj-logo {
+	    margin-top: 0px;
+	    height: 115px;
+	    position: initial;
+	}
 
 	.header-container .container .hj-container {
 		text-align: center;

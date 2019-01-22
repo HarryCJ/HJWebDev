@@ -735,6 +735,7 @@ ul.nav-dropdown-menu a:last-child .drop-down-item {
 
 .content-container-ajax {
     /*overflow: hidden;*/
+        transition: opacity 0.5s;
 }
 
 html { overflow-y: scroll; }

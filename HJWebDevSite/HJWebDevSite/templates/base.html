@@ -98,7 +98,7 @@
             <!-- <div class="error-message message bad-connection-message">Could not connect.</div> -->
                 {% if messages %}
                 {% for message in messages %}
-                <div{% if message.tags %} class="{{ message.tags }}-message message"{% endif %}>
+                <div {% if message.tags %} class="{{ message.tags }}-message message"{% endif %} >
                     {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
                     {{ message }}
                 </div>
@@ -108,7 +108,13 @@
             {% block content %}{% endblock %}
         </div>
 
-        <div class="footer-container"></div>
+        <div class="footer-container" style="display: none;"></div>
+
+        <div class="loading-icon-container">
+            <div class="loading-icon-background">
+                <img src="/static/img/loading-icon.svg" height="64" alt="loading-icon.svg" class="loading-icon" />
+            </div>
+        </div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>

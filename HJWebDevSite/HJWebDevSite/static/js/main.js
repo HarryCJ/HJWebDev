@@ -1,6 +1,6 @@
  var currentPage = window.location.pathname;
 
-var siteURL = window.location.protocol+"//"+window.location.hostname;//+":8000";
+var siteURL = window.location.protocol+"//"+window.location.hostname+":8000";
 var pageURL = siteURL + window.location.pathname;
 var ajaxURL = pageURL + "ajax/"
 
@@ -101,7 +101,7 @@ function loadPage(ajax_options, initial = false) {
 
 				$(this).remove();
 
-				$('.content-container .content-container-ajax').ready(function() {
+				if(document.readyState === 'ready' || document.readyState === 'complete') {
 
 					togglePageLoading(false);
 					var newHeight = $('.content-container .content-container-ajax').height();
@@ -114,7 +114,37 @@ function loadPage(ajax_options, initial = false) {
 						$("html").css("overflow-y", "scroll");
 					}, 250);
 
-				});
+				} else {
+					$(window).bind("load", function() {
+
+						togglePageLoading(false);
+						var newHeight = $('.content-container .content-container-ajax').height();
+						$('.content-container .content-container-ajax').css("height", "0px");
+						$('.content-container .content-container-ajax').animate(
+							{opacity: 1, }, { queue: false, duration: 200 })
+						.animate({height: newHeight, }, { queue: false, duration: 250 });
+						setTimeout(function(){
+							$('.footer-container').show();
+							$("html").css("overflow-y", "scroll");
+						}, 250);
+
+					});
+				}
+
+				// $(window).bind("load", function() {
+
+				// 	togglePageLoading(false);
+				// 	var newHeight = $('.content-container .content-container-ajax').height();
+				// 	$('.content-container .content-container-ajax').css("height", "0px");
+				// 	$('.content-container .content-container-ajax').animate(
+				// 		{opacity: 1, }, { queue: false, duration: 200 })
+				// 	.animate({height: newHeight, }, { queue: false, duration: 250 });
+				// 	setTimeout(function(){
+				// 		$('.footer-container').show();
+				// 		$("html").css("overflow-y", "scroll");
+				// 	}, 250);
+
+				// });
 			} else {
 				togglePageLoading(false);
 				$(".content-container-ajax").css("opacity", 0).hide();

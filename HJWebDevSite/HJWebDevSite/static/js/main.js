@@ -1,6 +1,6 @@
  var currentPage = window.location.pathname;
 
-var siteURL = window.location.protocol+"//"+window.location.hostname;//+":8000";
+var siteURL = window.location.protocol+"//"+window.location.hostname+":8000";
 var pageURL = siteURL + window.location.pathname;
 var ajaxURL = pageURL + "ajax/"
 
@@ -88,6 +88,19 @@ function togglePageLoading(my_isLoading){
 	}
 }
 
+function setUpInitialPage() {
+	togglePageLoading(false);
+	var newHeight = $('.content-container .content-container-ajax').height();
+	$('.content-container .content-container-ajax').css("height", "0px");
+	$('.content-container .content-container-ajax').animate(
+		{opacity: 1, }, { queue: false, duration: 200 })
+	.animate({height: newHeight, }, { queue: false, duration: 250 });
+	setTimeout(function(){
+		$('.footer-container').show();
+		$("html").css("overflow-y", "overlay");
+	}, 250);
+}
+
 function loadPage(ajax_options, initial = false) {
 
 	var loadURL = siteURL + ajax_options["href"] + "ajax/"
@@ -103,30 +116,12 @@ function loadPage(ajax_options, initial = false) {
 
 				if(document.readyState === 'ready' || document.readyState === 'complete') {
 
-					togglePageLoading(false);
-					var newHeight = $('.content-container .content-container-ajax').height();
-					$('.content-container .content-container-ajax').css("height", "0px");
-					$('.content-container .content-container-ajax').animate(
-						{opacity: 1, }, { queue: false, duration: 200 })
-					.animate({height: newHeight, }, { queue: false, duration: 250 });
-					setTimeout(function(){
-						$('.footer-container').show();
-						$("html").css("overflow-y", "scroll");
-					}, 250);
+					setUpInitialPage();
 
 				} else {
 					$(window).bind("load", function() {
 
-						togglePageLoading(false);
-						var newHeight = $('.content-container .content-container-ajax').height();
-						$('.content-container .content-container-ajax').css("height", "0px");
-						$('.content-container .content-container-ajax').animate(
-							{opacity: 1, }, { queue: false, duration: 200 })
-						.animate({height: newHeight, }, { queue: false, duration: 250 });
-						setTimeout(function(){
-							$('.footer-container').show();
-							$("html").css("overflow-y", "scroll");
-						}, 250);
+						setUpInitialPage();
 
 					});
 				}

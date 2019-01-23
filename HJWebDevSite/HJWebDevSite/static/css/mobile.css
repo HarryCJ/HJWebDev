@@ -79,6 +79,10 @@
 	.footer-container {
 	    height: 50px;
 	}
+
+	.content-container {
+		padding-bottom: 50px;
+	}
 }
 
 /*mobile*/
@@ -116,6 +120,7 @@
 
 	.content-container {
 		overflow: hidden;
+		padding-bottom: 15px;
 	}
 
 	.block .rich-text h4 a {

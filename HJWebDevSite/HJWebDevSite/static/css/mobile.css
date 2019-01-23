@@ -76,12 +76,12 @@
 	.col-sm-alignment-right { text-align: right; }
 
 
-	.footer-container {
+	.footer {
 	    height: 50px;
 	}
 
 	.content-container {
-		padding-bottom: 50px;
+		margin-bottom: 50px;
 	}
 }
 
@@ -120,7 +120,7 @@
 
 	.content-container {
 		overflow: hidden;
-		padding-bottom: 15px;
+		margin-bottom: 15px;
 	}
 
 	.block .rich-text h4 a {
@@ -172,7 +172,7 @@
 	.col-xs-alignment-center { text-align: center; }
 	.col-xs-alignment-right { text-align: right; }
 
-	.footer-container {
+	.footer {
 	    height: 15px;
 	}
 

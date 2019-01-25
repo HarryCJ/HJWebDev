@@ -97,7 +97,7 @@ function setUpInitialPage() {
 	.animate({height: newHeight, }, { queue: false, duration: 250 });
 	setTimeout(function(){
 		$('.footer-container').show();
-		$("html").css("overflow-y", "overlay");
+		// $("html").css("overflow-y", "visible");
 	}, 250);
 }
 

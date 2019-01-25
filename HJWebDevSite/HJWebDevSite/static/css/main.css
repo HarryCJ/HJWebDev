@@ -147,7 +147,7 @@ h2.subtitle {
     /*border-radius: 5px;*/
 height: 200px;
 margin-top: 50px;
-transition: background-color .15s, opacity 0.5s;
+transition: background-color .15s, opacity 0.15s;
 position: absolute;
 top: 0px;
 left: 0px;
@@ -749,7 +749,7 @@ ul.nav-dropdown-menu a:last-child .drop-down-item {
         transition: opacity 0.5s;
 }
 
-html { overflow-y: hidden; }
+html { overflow-y: scroll; }
 
 .loading-icon-container {
     position: fixed;

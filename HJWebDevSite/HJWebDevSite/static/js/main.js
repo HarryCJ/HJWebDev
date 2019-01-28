@@ -1,10 +1,66 @@
  var currentPage = window.location.pathname;
-
+// $( "#toggle" ).toggle( "slide" );
 var siteURL = window.location.protocol+"//"+window.location.hostname;//+":8000";
 var pageURL = siteURL + window.location.pathname;
 var ajaxURL = pageURL + "ajax/"
 
 var could_not_connect_message = '<div class="error-message message bad-connection-message">Could not connect.</div>';
+
+function rotateLogo(x, y, x_direction, y_direction){
+
+	// var x = -15;
+	// var y = -15;
+	$('.hj-logo').css("box-shadow", "rgb(180, 97, 58) "+x+"px  "+y+"px 0px 30px");
+	
+	console.log("start");
+	console.log(x_direction);
+	console.log(y_direction);
+	if (y_direction == "up") {
+		y= y+ 1;
+		console.log(y);
+		y = y * 1.1;
+		y = y.toFixed(5)
+		console.log(y);
+		if (y > 15){
+
+		return 0;	
+		}
+		if (y >= 15){
+			y =15;
+			y_direction = "down";	
+		}
+	} else if (y_direction == "down") {
+		y -= 1;
+		// y = y * -1.5;
+		if (y <= -15){
+			y_direction = "up";	
+		}
+	}
+	console.log(x_direction);
+	console.log(y_direction);
+	console.log("finish");
+
+	 if (x_direction == "right"){
+		x = x + 1;
+		// x = x * 1.5;
+		if (x >= 15){
+			x_direction = "left";
+		}
+	} else if (x_direction == "left") {
+		x -= 1;
+		// x = x * -1.5;
+		if (x <= -15){
+			x_direction = "right";	
+		}
+	}
+
+	setTimeout(function(){
+		// x+=1; y+=1;
+		rotateLogo(x, y, x_direction, y_direction);
+	}, 10);
+}
+
+// rotateLogo(15, 0, "right", "up");
 
 function setGlobalClickHandler(){
 
@@ -62,13 +118,13 @@ function toggleActivePage(ajax_options, target = null) {
 	// console.log(ajax_options);
 
 	//Change active nav menu item
-	if (target != null && $(target).parent().hasClass("activatable")) {
+	if (target != null && $(target).closest(".activatable").length > 0) {
 		$(".activatable.active").removeClass("active");
-		$(target).parent().addClass("active");
+		$(target).closest(".activatable").addClass("active");
 	} else {
 		if ($('.activatable [ajax-page-id="'+ajax_options["ajax-page-id"]+'"]').length){
 			$(".activatable.active").removeClass("active");
-			$('.activatable [ajax-page-id="'+ajax_options["ajax-page-id"]+'"]').parent().addClass("active");
+			$('.activatable [ajax-page-id="'+ajax_options["ajax-page-id"]+'"]').closest(".activatable").addClass("active");
 		}
 	}
 }

@@ -31,6 +31,9 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
+
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
@@ -52,11 +55,13 @@
                 {% get_site_root as site_root %}
                     <div class="hj-container">
                         <a href="/" class="ajax-link ajax-page-id-{{ site_root.id }} activatable {% if self.url == '/' %}active{% endif %}">
-                        <!-- <div class="logo-container"> -->
-                        <img class="hj-logo hj-logo-notext ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitenotext.png" href="/">
-                        <img class="hj-logo hj-logo-text ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitetext.png" href="/">
-                        <!-- <div class="webdev-text">webdev</div> -->
-                        <!-- </div> -->
+                            <div class="logo-container">
+                                <div class="logo-text">Web Development</div>
+                                <div class="logo-background"></div>
+                                <img class="hj-logo hj-logo-notext ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitenotext.png" href="/">
+                                <!-- <img class="hj-logo hj-logo-text ajax-link" ajax-page-id="{{ site_root.id }}" ajax-page-title="{{ site_root.title }}" src="/static/img/logov3whitetext.png" href="/"> -->
+                                <!-- <div class="webdev-text">webdev</div> -->
+                            </div>
                         </a>
                         <!-- <div class="hj-block"></div>
                         <div class="hj-text-container"><div class="hj-text">HJ</div></div> -->

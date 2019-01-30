@@ -152,9 +152,9 @@ h2.subtitle {
     display: inline-block;
     display: -webkit-inline-box;
     position: relative;
-    width: 100px;
+    /*width: 100px;*/
     /* height: 100px; */
-    height: 100px;
+    /*height: 100px;*/
     /* padding: 50px; */
     /* margin-top: 7px; */
     z-index: 100;
@@ -316,15 +316,6 @@ img.logo1 {
 
 .logo-container {
     position: relative;
-    /* height: 100%; */
-    /* padding: 10px; */
-    /* left: 0px; */
-    /* top: 0px; */
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    /* left: 15px; */
-    /* overflow: hidden; */
-    /* opacity: 0.8; */
     display: inline-block;
     margin-top: 50px;
 }
@@ -333,13 +324,6 @@ img.logo1 {
     display: none;
 }
 
-/*.logo-container:hover img.logo1 {
-    display: none;
-}
-
-.logo-container:hover img.logo2 {
-    display: block;
-}*/
 
 .content {
     /* border: 3px #479997 solid; */

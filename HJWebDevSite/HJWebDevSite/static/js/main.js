@@ -1,6 +1,6 @@
  var currentPage = window.location.pathname;
 // $( "#toggle" ).toggle( "slide" );
-var siteURL = window.location.protocol+"//"+window.location.hostname;//+":8000";
+var siteURL = window.location.protocol+"//"+window.location.hostname+":8000";
 var pageURL = siteURL + window.location.pathname;
 var ajaxURL = pageURL + "ajax/"
 

@@ -10,8 +10,16 @@
 @media screen and (max-width: 1024px) {
 
 	.hj-logo {
-		margin-top: -25px;
+		/*margin-top: -25px;*/
 	    	height: 150px;
+	}
+
+	.logo-text {
+		font-size: 14px;
+	}
+
+	.logo-container {
+		margin-top: 25px;
 	}
 
 	.hj-container.active .hj-logo,
@@ -37,14 +45,14 @@
 	    padding-bottom: 5px;
 	    padding-left: 10px;
 	    padding-right: 10px;
-	    font-size: 17px;
+	    font-size: 20px;
 	    z-index: 100;
 	}
 
 	.header-container .container {
 	    height: 200px;
-	    padding-top: 50px;
-	    padding-bottom: 50px;
+/*	    padding-top: 50px;
+	    padding-bottom: 50px;*/
 	}
 
 	.header-container .menu-items {
@@ -88,6 +96,10 @@
 /*mobile*/
 @media screen and (max-width: 767px) {
 
+	.logo-container {
+		margin-top: 0px;
+	}
+
 	.hj-container.active .hj-logo, .hj-container:not(.active) a:hover .hj-logo,
 	.hj-container a.active .hj-logo,
 	.hj-container .hj-logo {
@@ -95,7 +107,7 @@
 	}
 
 	img.hj-logo.hj-logo-notext {
-	    display: none;
+	    /*display: none;*/
 	}
 	img.hj-logo.hj-logo-text {
 	    display: block;
@@ -104,7 +116,7 @@
 
 	.hj-logo {
 	    margin-top: 0px;
-	    height: 115px;
+	    height: 150px;
 	    position: initial;
 	}
 
@@ -142,7 +154,7 @@
 
 	.header-container .menu-items {
 	    position: initial;
-	    padding-top: 15px;
+	    padding-top: 0px;
 	    text-align: center;
 	}
 

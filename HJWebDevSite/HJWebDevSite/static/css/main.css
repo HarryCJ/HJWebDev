@@ -2,9 +2,10 @@
 /*rgb(173, 173, 173)*/
 
 body {
-    background: transparent;
+    background: #f0824e;
     /*position: relative;*/
     min-height: 100%;
+    /*padding-bottom: 100px;*/
 }
 
 html {
@@ -471,6 +472,7 @@ a:hover {
 
 .footer {
         height: 100px;
+        /*height: 100%;*/
     background: #f0824e;
     position: absolute;
     bottom: 0px;

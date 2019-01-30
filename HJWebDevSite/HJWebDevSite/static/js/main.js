@@ -1,6 +1,6 @@
  var currentPage = window.location.pathname;
 // $( "#toggle" ).toggle( "slide" );
-var siteURL = window.location.protocol+"//"+window.location.hostname;//+":8000";
+var siteURL = window.location.protocol+"//"+window.location.hostname+":8000";
 var pageURL = siteURL + window.location.pathname;
 var ajaxURL = pageURL + "ajax/"
 
@@ -146,11 +146,11 @@ function togglePageLoading(my_isLoading){
 
 function setUpInitialPage() {
 	togglePageLoading(false);
-	var newHeight = $('.content-container .content-container-ajax').height();
-	$('.content-container .content-container-ajax').css("height", "0px");
+	// var newHeight = $('.content-container .content-container-ajax').height();
+	// $('.content-container .content-container-ajax').css("height", "0px");
 	$('.content-container .content-container-ajax').animate(
 		{opacity: 1, }, { queue: false, duration: 200 })
-	.animate({height: newHeight, }, { queue: false, duration: 250 });
+	// .animate({height: newHeight, }, { queue: false, duration: 250 });
 	setTimeout(function(){
 		$('.footer-container').show();
 		// $("html").css("overflow-y", "visible");

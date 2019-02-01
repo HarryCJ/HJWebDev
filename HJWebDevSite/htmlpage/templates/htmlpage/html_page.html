@@ -1,0 +1,4 @@
+{% load static wagtailuserbar wagtailcore_tags %}
+{% for block in page.body %}
+    {% include_block block %}
+{% endfor %}

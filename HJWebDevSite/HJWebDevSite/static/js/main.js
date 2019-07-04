@@ -206,10 +206,11 @@ function loadPage(ajax_options, initial = false) {
         				$(".content-container-ajax.page-id-"+ajax_options["ajax-page-id"]).show().css("opacity", 1);
 			}
 
-        			$('.messages-container').slideUp();
+        			// $('.messages-container').slideUp();
         			toggleActivePage(ajax_options);
         			pushState(ajax_options);
 			setGlobalClickHandler();
+					clearMessagesSoon();
 
 		} else {
 

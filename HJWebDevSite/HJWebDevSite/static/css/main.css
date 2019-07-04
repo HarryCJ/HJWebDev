@@ -11,7 +11,8 @@ body {
 html {
     /*background: #DFDBD7;*/
     /*background: repeating-linear-gradient(    45deg,    rgba(233,219,215,1),    rgba(233,219,215,1) 15px,    #F5F4F2 10px,    #F5F4F2 20px  );*/
-    background: #f1f1f1;
+    /*background: #f1f1f1;*/
+    background: #e6e6e6;
     min-height: 100%;
 }
 

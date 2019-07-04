@@ -489,7 +489,8 @@ a:hover {
 }
 
 .block.background-dark {
-    background: rgb(173, 173, 173);
+    /*background: rgb(173, 173, 173);*/
+    background: #cccccc;
     color: white;
 }
 
@@ -648,7 +649,8 @@ ul.nav-dropdown-menu a:last-child .drop-down-item {
 
     padding-top: 50px;
     padding-bottom: 50px;
-    background: #f1f1f1;
+    /*background: #f1f1f1;*/
+    background: #e6e6e6;
 }
 
 

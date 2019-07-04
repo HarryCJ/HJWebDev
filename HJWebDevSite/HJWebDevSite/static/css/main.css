@@ -683,6 +683,10 @@ ul.nav-dropdown-menu a:last-child .drop-down-item {
 
 }
 
+.three-column-block.background-dark .column-heading {
+    color: white;
+}
+
 .three-column-block .column-heading {
     text-align: center;
     font-size: 45px;
